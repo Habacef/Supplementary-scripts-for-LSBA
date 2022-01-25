@@ -1,6 +1,8 @@
 # Commands
 
 The commands are listed in the order of their execution for a mutation & docking pipeline. 
+
+
 Heavy-atom coordinate constrained relax in the beginning: 
 
 * rosetta_scripts.<ROSETTARELEASE> -parser:protocol relax_cst.xml -nstruct 10 -s <PDB>.pdb 
