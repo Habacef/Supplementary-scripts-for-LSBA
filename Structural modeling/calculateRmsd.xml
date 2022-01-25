@@ -1,0 +1,26 @@
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="st" weights="ref2015_cst"/>
+	</SCOREFXNS>
+	<RESIDUE_SELECTORS>
+	</RESIDUE_SELECTORS>
+	<MOVE_MAP_FACTORIES>
+	</MOVE_MAP_FACTORIES>
+	<SIMPLE_METRICS>
+		<RMSDMetric name="rmsd" reference_name="current" rmsd_type="RMSD_protein_BB_heavy"/>
+	</SIMPLE_METRICS>
+	<MOVERS>
+		<SavePoseMover name="native" restore_pose="1" reference_name="nativePose" pdb_file="%%ref%%" />
+		<SavePoseMover name="save_current" reference_name="current"/>
+		<RunSimpleMetrics name="run_metrics1" metrics="rmsd" prefix="m1_" />
+		<AlignChain name="align" source_chain="0" target_chain="0" target_name="%%ref%%" align_to_com="0" />
+		<DumpPdb name="dump" fname="dump.pdb" scorefxn="st" />
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover_name="align"/>
+		<Add mover_name="save_current" />
+		<Add mover_name="dump"/>
+		<Add mover_name="native"/>
+		<Add mover_name="run_metrics1"/>
+	</PROTOCOLS>
+</ROSETTASCRIPTS>

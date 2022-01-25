@@ -1,0 +1,28 @@
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+	<ScoreFunction name="st" weights="ref2015">
+        <Reweight scoretype="voids_penalty" weight="0.25" /> # This is the only line that must be added to convert this design script to one that penalizes voids during design.
+         </ScoreFunction>
+    </SCOREFXNS>
+    <RESIDUE_SELECTORS>
+    </RESIDUE_SELECTORS>
+    <MOVE_MAP_FACTORIES>
+
+  </MOVE_MAP_FACTORIES>
+    <TASKOPERATIONS>
+    </TASKOPERATIONS>
+    <FILTERS>
+	<PackStat name="packstat" threshold="0.58" confidence="0"/>
+	<BuriedUnsatHbonds name="buns" scorefxn="st" confidence="0"/>
+    </FILTERS>
+    <MOVERS>
+	<FastRelax name="relax" scorefxn="st"/>
+	<MinMover name="min" scorefxn="st" chi="1" bb="1" cartesian="false"/>
+    </MOVERS>
+    <PROTOCOLS>
+	<Add mover_name="relax"/>
+	<Add filter_name="packstat"/>
+	<Add filter_name="buns"/>
+    </PROTOCOLS>
+    <OUTPUT />
+</ROSETTASCRIPTS>

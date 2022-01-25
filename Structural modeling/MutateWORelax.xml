@@ -1,0 +1,39 @@
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		It does not matter if using ref2015 or ref2015_cst here, output is the same
+		<ScoreFunction name="st" weights="ref2015"/>
+	</SCOREFXNS>
+	<RESIDUE_SELECTORS>
+		 Index name="L1" resnums="227-481"/>
+		 <Index name="L1" resnums="%%resnms%%"/>
+	</RESIDUE_SELECTORS>
+	<PACKER_PALETTES>
+		<DefaultPackerPalette name="def" />
+	</PACKER_PALETTES>
+	<TASKOPERATIONS>
+			<IncludeCurrent name="IC"/>
+			<ReadResfile name="RES" filename="%%RAS%%"/>
+	</TASKOPERATIONS>
+	<MOVE_MAP_FACTORIES>
+		<MoveMapFactory name="movemap_L1" bb="0" chi="0">
+				<Backbone residue_selector="L1" />
+				<Chi residue_selector="L1" />
+		</MoveMapFactory>
+</MOVE_MAP_FACTORIES>
+	<SIMPLE_METRICS>
+	</SIMPLE_METRICS>
+	<FILTERS>
+	</FILTERS>
+	<MOVERS>
+		<FastRelax name="relax" scorefxn="st" task_operations="IC"/>
+		<FastRelax name="laxit2" scorefxn="st" movemap_factory="movemap_L1"/>
+    <PackRotamersMover name="Mutate" nloop="5"
+        scorefxn="st"
+        task_operations="RES"
+        packer_palette="def" />
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover_name="Mutate"/>
+	</PROTOCOLS>
+	<OUTPUT />
+</ROSETTASCRIPTS>
