@@ -1,3 +1,5 @@
+[![DOI](https://sandbox.zenodo.org/badge/448104004.svg)](https://sandbox.zenodo.org/badge/latestdoi/448104004)
+
 # Supplementary-scripts-for-LSBA
 Scripts by: 
 * Wiktor Burdzinski (analyzing immunofluorescence images & super-resolution images using FIJI)
