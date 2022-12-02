@@ -1,4 +1,4 @@
-[![DOI](https://sandbox.zenodo.org/badge/448104004.svg)](https://sandbox.zenodo.org/badge/latestdoi/448104004)
+[![DOI](https://zenodo.org/badge/448104004.svg)](https://zenodo.org/badge/latestdoi/448104004)
 
 # Supplementary-scripts-for-LSBA
 Scripts by: 
